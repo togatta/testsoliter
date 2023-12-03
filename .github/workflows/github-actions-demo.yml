@@ -20,8 +20,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build create --use
-          docker build build --platform linux/amd64 -t togattafudo/welcome:${{ github.event.inputs.tag }} -t togattafudo/welcome:latest .
+          docker buildx create --use
+          docker buildx build --platform linux/amd64 -t togattafudo/welcome:${{ github.event.inputs.tag }} -t togattafudo/welcome:latest .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -31,5 +31,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
+          docker tag togattafudo/welcome:${{ github.event.inputs.tag }}
+        docker tag togattafudo/welcome:latest
           docker push togattafudo/welcome:${{ github.event.inputs.tag }}
           docker push togattafudo/welcome:latest
