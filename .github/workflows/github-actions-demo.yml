@@ -31,5 +31,5 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push testing/welcome:${{ github.event.inputs.tag }}
-          docker push testing/welcome:latest
+          docker push togatta/welcome:${{ github.event.inputs.tag }}
+          docker push togatta/welcome:latest
