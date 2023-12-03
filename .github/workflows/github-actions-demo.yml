@@ -32,6 +32,6 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
           docker tag togattafudo/welcome:${{ github.event.inputs.tag }}
-        docker tag togattafudo/welcome:latest
+          docker tag togattafudo/welcome:latest
           docker push togattafudo/welcome:${{ github.event.inputs.tag }}
           docker push togattafudo/welcome:latest
