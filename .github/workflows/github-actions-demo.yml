@@ -21,7 +21,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker buildx create --use
-          docker buildx build --platform linux/amd64,linux/arm64 -t togatta/welcome:${{ github.event.inputs.tag }} -t togatta/welcome:latest .
+          docker buildx build --platform linux/amd64 -t togatta/welcome:${{ github.event.inputs.tag }} -t togatta/welcome:latest .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
